@@ -1,6 +1,6 @@
 package com.arleyhoy.semillero1.counter;
 
-import com.arleyhoy.semillero1.model.Summary;
+import com.arleyhoy.semillero1.Summary;
 
 import java.io.IOException;
 
