@@ -28,7 +28,7 @@ public class Wordcounterdefault implements WordCounter {
     private static long getNumberOfWord(Path path) throws IOException {
         try(Stream<String> lines= Files.lines(path)){
             return  lines
-                    .map(line -> line.split(""))
+                    .map(line -> line.split(" "))
                     .mapToInt(WordsOfLine -> WordsOfLine.length)
                     .sum();
         }
