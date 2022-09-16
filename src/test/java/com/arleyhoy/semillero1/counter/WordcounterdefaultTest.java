@@ -18,6 +18,6 @@ public class WordcounterdefaultTest {
         Summary summary = wordCounter.process(absolutePath + File.separator +"test.txt");
 
         Assertions.assertEquals(2,summary.getNumberOfLines());
-        Assertions.assertEquals(5, summary.getNumberOfWords());
+        Assertions.assertEquals(23, summary.getNumberOfWords());
     }
 }
