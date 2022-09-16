@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 group 'com.arleyHoy'
@@ -23,6 +24,15 @@ jacocoTestReport {
                     'com/arleyHoy/semillero1/model/**'
             ])
         })
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "arleyhoy_Semillero"
+        property "sonar.organization", "arleyhoy"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.coverage.exclusions", "**/model/**"
     }
 }
 
