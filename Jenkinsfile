@@ -1,17 +1,7 @@
 pipeline {
    agent any
     stages {
-     /* stage('SCM') {
-             git 'https://github.com/Arleydevco/semillero_practica3_pipelines.git'
-      }*/
-      stage('SonarQube analysis') {
-        steps{
-        withSonarQubeEnv(installationName:'sonarCloud') { // Will pick the global server connection you have configured
-            bat './gradlew sonarqube'
-            }
-        }
-      }
-      stage('Build') {
+     stage('Build') {
         steps {
             bat 'gradlew.bat clean build -x test'
         }
@@ -28,8 +18,10 @@ pipeline {
       }
       stage('Sonar'){
         steps {
-            bat 'gradlew.bat sonarqube'
-        }
+         withSonarQubeEnv(installationName:'sonarCloud') { // Will pick the global server connection you have configured
+                    bat './gradlew sonarqube'
+         }
       }
     }
+  }
 }
