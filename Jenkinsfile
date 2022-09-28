@@ -6,7 +6,7 @@ pipeline {
       }
       stage('SonarQube analysis') {
         withSonarQubeEnv(installationName:'sonarCloud') { // Will pick the global server connection you have configured
-            bat './gradlew sonarqube'
+            bat './gradlew clean sonarqube'
         }
       }
       stage('Build') {
