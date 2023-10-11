@@ -8,18 +8,18 @@ public static void main(String args[]) throws Exception { // Noncompliant
       } else if (x == 1) {
         y = 2;  
       }
-      else if (true=true){
-        if (true=true){
+      else if (true==true){
+        if (true==true){
           System.out.println("amen");
-          if (true=true){
+          if (true==true){
             System.out.println("amen");
-            if (true=true){
+            if (true==true){
               System.out.println("amen");
-              if (true=true){
+              if (true==true){
                 System.out.println("amen");
-                if (true=true){
+                if (true==true){
                   System.out.println("amen");
-                  if (true=true){
+                  if (true==true){
                     System.out.println("amen");
                   }    
                 }    
