@@ -1,46 +1,11 @@
 plugins {
-    id 'java'
-    id 'jacoco'
-    id "org.sonarqube" version "3.4.0.2513"
+  id "org.sonarqube" version "4.3.1.3277"
 }
 
-group 'com.arleyHoy'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
-jacoco {
-    toolVersion = "0.8.8"
-}
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
-    afterEvaluate{
-        classDirectories.from=files(classDirectories.files.collect{
-            fileTree(dir: it,exclude:[
-                    'com/arleyHoy/semillero1/model/**'
-            ])
-        })
-    }
-}
-
-sonarqube {
-    properties {
-        property "sonar.projectKey", "arleyhoy_Semillero"
-        property "sonar.organization", "arleyhoy"
-        property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.exclusions", "**/model/**"
-    }
-}
-
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-}
-
-test {
-    useJUnitPlatform()
+sonar {
+  properties {
+    property "sonar.projectKey", "ArleyCeballos_semillero_practica3_pipelines"
+    property "sonar.organization", "arleyceballos"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
