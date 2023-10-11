@@ -1,10 +1,35 @@
 plugins {
-    id "jacoco"
+    id 'jacoco'
     id "org.sonarqube" version "3.5.0.2730”
 }
  
 jacocoTestReport {
     reports {
         xml.required = true
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+} 
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+    afterEvaluate{
+        classDirectories.from=files(classDirectories.files.collect{
+            fileTree(dir: it,exclude:[
+                    '.'
+            ])
+        })
     }
 }
